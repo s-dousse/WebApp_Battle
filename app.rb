@@ -6,14 +6,22 @@ class Battle < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  enable :sessions
+
   get '/' do
     erb :index
   end
 
   post '/names' do
-    @name1 = params[:name1]
-    @name2 = params[:name2]
-    erb :names
+    session[:name1] = params[:name1]    # store the player names in the session
+    session[:name2] = params[:name2]
+    redirect to('/play')
+  end
+
+  get '/play' do
+    @player1 = session[:name1]          # extract the instance variables required by the view from the session
+    @player2 = session[:name2]
+    erb :play
   end
 
   # start the server if ruby file executed directly
