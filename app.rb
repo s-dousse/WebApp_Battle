@@ -13,20 +13,20 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    session[:name1] = params[:name1]    # store the player names in the session
-    session[:name2] = params[:name2]
+    $player1 = Player.new(params[:name1])    # store the player names in the session
+    $player2 = Player.new(params[:name2])
     redirect to('/play')
   end
 
   get '/play' do
-    @player1 = session[:name1]          # extract the instance variables required by the view from the session
-    @player2 = session[:name2]
+    @player1 = $player1.name         # extract the instance variables required by the view from the session
+    @player2 = $player2.name
     erb :play
   end
 
   get '/attack' do
-    @player1 = session[:name1]          # get method as we are not changing the state of the program
-    @player2 = session[:name2]
+    @player1 = $player1.name        # get method as we are not changing the state of the program
+    @player2 = $player2.name
     erb :attack
   end
 
