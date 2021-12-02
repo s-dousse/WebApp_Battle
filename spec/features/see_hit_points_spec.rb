@@ -1,5 +1,5 @@
-feature "enter names" do
-  scenario '2 players can enter their names and see them displayed' do
+feature "2 players enter their names" do
+  scenario 'display hit points' do
     visit '/'
     fill_in('name1', with: 'Charlie')
     fill_in('name2', with: 'Snoopy')
@@ -7,6 +7,6 @@ feature "enter names" do
 
     # save_and_open_page # will save the web page and open the browser to display it
 
-    expect(page).to have_content "Charlie VS Snoopy"
+    expect(page).to have_content "Snoopy: 60HP"
   end
 end
