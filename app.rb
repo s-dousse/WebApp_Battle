@@ -13,7 +13,6 @@ class Battle < Sinatra::Base
   post '/names' do
     @name1 = params[:name1]
     @name2 = params[:name2]
-    p params
     erb :names
   end
 
