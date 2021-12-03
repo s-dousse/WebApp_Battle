@@ -1,7 +1,7 @@
-<h1>  <%= @player1%> VS <%= @player2 %> </h1>
-<h2>  <%= @player2%>: 60HP </h2>
+<h1>  <%= @game.player_1.name %> VS <%= @game.player_2.name %> </h1>
+<h2>  <%= @game.player_2.name %>: 60HP </h2>
 
-<h3> <%= @player1%>, your turn! </h3>
+<h3> <%= @game.player_1.name %>, your turn! </h3>
 
 <form method="get" action="/attack">
   <label for="attack">
