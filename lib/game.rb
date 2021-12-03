@@ -1,17 +1,17 @@
 class Game
-  def initialize(player_1, player_2)
-    @players = [player_1, player_2]
-  end
+  attr_reader :player1, :player2, :current_turn
 
-  def player_1
-    @players.first
-  end
-
-  def player_2
-    @players.last
+  def initialize(player1, player2)
+    @player1 = player1
+    @player2 = player2
+    @current_turn = player1
   end
 
   def attack(player)
     player.loose_hp
+  end
+
+  def switch_turns
+    @current_turn == @player1 ? @current_turn = @player2 : @current_turn
   end
 end
