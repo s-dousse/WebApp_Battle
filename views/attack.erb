@@ -1,7 +1,7 @@
-<h1>  <%= @player1 %> VS <%= @player2 %> </h1>
-
-<h2> Succesful attack!
-<br>
-    <%= @player2 %> looses 10HP!
+<h1> Battle! </h1>
+<h2>
+  <%= @player1.name %> attacked <%= @player2.name %> </h2>
+  Succesful attack! (-10HP Ouch!)
+  <br>
+  <%= @player2.name %>: <%= @player2.hp %>HP
 </h2>
-

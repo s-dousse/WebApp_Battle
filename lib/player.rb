@@ -1,3 +1,4 @@
+
 class Player
   attr_reader :name, :hp
   DEFAULT_HP = 60

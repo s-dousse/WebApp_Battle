@@ -1,12 +1,13 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/player.rb'
 
 class Battle < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
 
-  # enable :sessions
+  enable :sessions
 
   get '/' do
     erb :index
@@ -19,14 +20,15 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player1 = $player_1.name         # extract the instance variables required by the view from the session
+    @player1 = $player_1.name      # extract the instance variables required by the view from the session
     @player2 = $player_2.name
     erb :play
   end
 
   get '/attack' do
-    @player1 = $player_1.name        # get method as we are not changing the state of the program
-    @player2 = $player_2.name
+    @player1 = $player_1        # get method as we are not changing the state of the program
+    @player2 = $player_2
+    @player1.attack(@player2)
     erb :attack
   end
 

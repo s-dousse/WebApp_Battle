@@ -6,6 +6,6 @@ feature "player2 looses HP after attack" do
 
     click_button 'Attack'
     expect(page).to_not have_content "Snoopy: 60HP"
-    expect(page).to have_content "Snoopy looses 10HP"
+    expect(page).to have_content "Snoopy: 50HP"
   end
 end
